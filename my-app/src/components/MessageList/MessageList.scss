@@ -3,15 +3,19 @@
     height: 100%;
     // justify-content: space-between;
     align-items: end;
-    margin-bottom: 30px;
     &__wrapper {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        flex-direction: column;
+        padding-bottom: 12px;
     }
-    &__get-message {
-        width: 100px;
-        height: 20px;
+    &__get_message {
+        display: flex;
+        align-self: flex-start;
+        min-width: 10%;
+        max-width: 50%;
+        margin-bottom: 12px;
         background-color: white;
         margin-left: 50px;
         border-bottom-left-radius: 15px;
@@ -20,19 +24,82 @@
         font-size: 14.2px;
         line-height: 19px;
     };
-    &__set-message {
-        margin-top: 25px;
-        width: 100px;
-        height: 20px;
+    &__set_message {
+        display: flex;
+        align-self: flex-end;
+        overflow-wrap: break-word;
+        min-width: 10%;
+        max-width: 50%;
         background-color: #c4f9c3;
         margin-right: 50px;
+        border-bottom-right-radius: 15px;
+        border: 1px solid lightgray;
         padding-top: 6px;
         padding-bottom: 8px;
         padding-left: 9px;
         padding-right: 7px;
-        border-bottom-right-radius: 15px;
-        border: 1px solid lightgray;
-        font-size: 14.2px;
-        line-height: 19px;
+        &_wrapper {
+            display: flex;
+        }
+        &_text {
+            margin-left: 5px;
+            font-size: 14.2px;
+            text-align: start;
+            line-height: 19px;
+        }
+        &_container-time {
+            display: flex;
+            flex-direction: row;
+            align-self: flex-end;
+        }
+        &_time {
+           margin-left: 5px;
+           align-self: flex-end;
+        //    padding-bottom: 8px;
+           color: #667781;
+           font-size: 11px;
+           font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+       &_picture {
+            margin-left: 5px;
+            align-self: flex-end;
+                svg {
+                    color: #53bdeb
+                }
+       }
     }
+    // &__set_message {
+    //     display: flex;
+    //     align-self: flex-end;
+    //     overflow-wrap: break-word;
+    //     min-width: 10%;
+    //     max-width: 50%;
+    //     background-color: #c4f9c3;
+    //     margin-right: 50px;
+    //     border-bottom-right-radius: 15px;
+    //     border: 1px solid lightgray;
+    //     padding-top: 6px;
+    //     padding-bottom: 8px;
+    //     padding-left: 9px;
+    //     padding-right: 7px;
+    //     &_text {
+    //         font-size: 14.2px;
+    //         text-align: start;
+    //         line-height: 19px;
+    //     }
+    //     &_time {
+    //       margin-left: 5px;
+    //        align-self: flex-end;
+    //        padding-bottom: 8px;
+    //        color: #667781;
+    //        font-size: 12px;
+    //        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    //     }
+    //    &_picture {
+    //         align-self: flex-end;
+    //             svg {
+    //                 color: #53bdeb
+    //             }
+    //    }
+    // }
 }
