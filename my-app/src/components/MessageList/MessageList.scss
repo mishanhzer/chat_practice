@@ -3,6 +3,7 @@
     height: 100%;
     align-items: end;
     overflow-y: scroll;
+    padding-bottom: 10px;
     &::-webkit-scrollbar {
         width: 5px;
         // background-color: white;
@@ -17,7 +18,7 @@
         display: flex;
         justify-content: space-between;
         flex-direction: column;
-        padding-bottom: 12px;
+        // padding-bottom: 12px;
     }
     &__get_message {
         display: flex;
@@ -49,6 +50,9 @@
         padding-right: 7px;
         position: relative;
         box-sizing: border-box;
+        &:last-child {
+            margin-bottom: 5px;
+        }
         &:before {
             content: '';
             height: 13px;
@@ -65,7 +69,7 @@
         }
         &_text {
             margin-left: 5px;
-            margin-right: 50px;
+            margin-right: 55px;
             font-size: 14.2px;
             text-align: start;
             line-height: 19px;

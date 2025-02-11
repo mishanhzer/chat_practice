@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { selectAll } from './messageListSlice'
 import './MessageList.scss'
@@ -8,19 +8,35 @@ const date = new Date()
 const hours = date.getHours()
 const minutes = date.getMinutes()
 
-const MessageList = () => {
+const MessageList = (props) => {
     const messages = useSelector(state => state.message.messages)
+    const [scroll, setScroll] = useState(0)
+
+    const myRef = useRef()
+    const element = myRef.current
+    useEffect(() => {
+        if (element) {
+           element.scrollTo(0, element.scrollHeight)
+        }
+    }, [messages])
+
     let message = ''
     messages.map(item => message = item.message)
 
     return (
-        <div className='MessageList'>
-            <div className='MessageList__wrapper'>
+        <div 
+            className='MessageList'
+            ref={myRef}
+            >
+            <div 
+                className='MessageList__wrapper'>
                 <div className='MessageList__get_message'>Get message</div>
                     {messages.map((item, i) => {
                         if (item && item.message.length > 0) {
                             return (
-                                <div key={i} className='MessageList__set_message'>
+                                <div 
+                                    key={i} 
+                                    className='MessageList__set_message'>
                                   <div className='MessageList__set_message_wrapper'>
                                         <div className='MessageList__set_message_text'>{item.message}</div> 
                                         <div className='MessageList__set_message_wrapperTime'> 
