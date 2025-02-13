@@ -1,12 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit';
-
+import {configureStore} from '@reduxjs/toolkit';
+import storage from 'redux-persist/lib/storage'
+import {combineReducers} from "redux"; 
+import { persistReducer } from 'redux-persist'
+import thunk from 'redux-thunk'
 import message from '../components/MessageList/messageListSlice.js'
 
-const store = configureStore({ 
-    reducer: {message}, // подключение наших срезов
-    middleware: getDefaultMiddleware => getDefaultMiddleware(),
-    devTools: process.env.NODE_ENV !== 'production', 
-})
+const reducers = combineReducers({
+    message          
+   });
+   
+const persistConfig = {
+    key: 'root',
+    storage
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers)
+
+const store = configureStore({
+    reducer: persistedReducer,
+    devTools: process.env.NODE_ENV !== "production",
+    middleware: getDefaultMiddleware => getDefaultMiddleware()
+  });
 
 export default store;
+
 

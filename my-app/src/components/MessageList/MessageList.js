@@ -1,8 +1,7 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { selectAll } from './messageListSlice'
+
 import './MessageList.scss'
-import store from '../../store/store'
 
 const date = new Date()
 const hours = date.getHours()
@@ -10,7 +9,6 @@ const minutes = date.getMinutes()
 
 const MessageList = (props) => {
     const messages = useSelector(state => state.message.messages)
-    const [scroll, setScroll] = useState(0)
 
     const myRef = useRef()
     const element = myRef.current
