@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import './MessageList.scss'
@@ -9,13 +9,20 @@ const minutes = date.getMinutes()
 
 const MessageList = (props) => {
     const messages = useSelector(state => state.message.messages)
-
     const myRef = useRef()
-    const element = myRef.current
+
+   window.onload = () => {
+        const newHeight = localStorage.getItem('height')
+        console.log(newHeight)
+        window.scrollTo(0, 500)
+   }
+
+   myRef.current?.scrollIntoView();
+
     useEffect(() => {
-        if (element) {
-           element.scrollTo(0, element.scrollHeight)
-        }
+        const el = myRef.current
+           el?.scrollTo(0, el.scrollHeight)
+           localStorage.setItem('height', el.scrollHeight)
     }, [messages])
 
     let message = ''
