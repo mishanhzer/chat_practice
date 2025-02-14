@@ -5,10 +5,10 @@ import { nanoid } from 'nanoid'
 
 import {useHttp} from '../../hooks/http.hook';
 
-import './SendMessageForm.scss'
+import styles from './SendMessageForm.scss'
 import { addMessage } from '../MessageList/messageListSlice'
 
-const date = new Date()
+export const date = new Date()
 const hours = date.getHours()
 const minutes = date.getMinutes()
 
@@ -32,14 +32,20 @@ const SendMessageForm = () => {
         setText('')
     }
 
+    const handleChange = (e) => {
+        setText(e.target.value)
+    }
+
     return (
+        // <form onSubmit={onSumbit} className={styles.sendForm} action="submit">
         <form onSubmit={onSumbit} className='SendForm' action="submit">
             <input 
-                onChange={(e) => setText(e.target.value)}
+                onChange={handleChange}
                 value={text}
                 className='SendForm__input' 
                 placeholder='Введите сообщение' 
-                type="text" />
+                type="text" 
+            />
         </form>
     )
 }

@@ -1,5 +1,5 @@
 import AppHeader from '../appHeader/AppHeader';
-import SendMessageForm from '../Form/SendMessageForm';
+import SendMessageForm from '../SendMessageForm/SendMessageForm';
 import MessageList from '../MessageList/MessageList';
 
 import './App.scss';
@@ -9,7 +9,7 @@ const App = () => {
     <div className="App">
         <AppHeader />
         <MessageList />
-        <SendMessageForm/>
+        <SendMessageForm />
     </div>
   );
 }
