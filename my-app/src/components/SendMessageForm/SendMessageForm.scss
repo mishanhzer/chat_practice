@@ -5,18 +5,17 @@
     background-color: #f0f2f5;
     min-height: 64px;
     padding-bottom: 5px;
-    
-    &__input {
-        width: 80%;
-        height: 28px;
-        border: none;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        padding-top: 9px;
-        padding-bottom: 9px;
-        padding-left: 16px;
-        border-radius: 9px;
-        font-size: 15px;
-        outline: none;
-    }
+        &__input {
+            width: 80%;
+            height: 28px;
+            border: none;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            padding-top: 9px;
+            padding-bottom: 9px;
+            padding-left: 16px;
+            border-radius: 9px;
+            font-size: 15px;
+            outline: none;
+        }
 }
