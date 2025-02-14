@@ -3,29 +3,21 @@ import { useSelector } from 'react-redux'
 
 import './MessageList.scss'
 
-const date = new Date()
-const hours = date.getHours()
-const minutes = date.getMinutes()
-
 const MessageList = (props) => {
     const messages = useSelector(state => state.message.messages)
     const myRef = useRef()
 
-   window.onload = () => {
-        const newHeight = localStorage.getItem('height')
-        console.log(newHeight)
-        window.scrollTo(0, 500)
-   }
+    console.log(messages)
 
-   myRef.current?.scrollIntoView();
+    myRef.current?.scrollIntoView();
 
     useEffect(() => {
         const el = myRef.current
            el?.scrollTo(0, el.scrollHeight)
-           localStorage.setItem('height', el.scrollHeight)
     }, [messages])
 
     let message = ''
+    
     messages.map(item => message = item.message)
 
     return (
@@ -38,6 +30,7 @@ const MessageList = (props) => {
             <div className='MessageList__get_message'>Get message</div>
                 {messages.map((item, i) => {
                     if (item && item.message.length > 0) {
+                        console.log(item)
                         return (
                             <div 
                                 key={i} 
@@ -47,7 +40,7 @@ const MessageList = (props) => {
                                     <div className='MessageList__set_message_wrapperTime'> 
                                         <div className='MessageList__set_message_wrapperTime_time'>
                                             {
-                                                minutes < 10 ? `${hours}:0${minutes}` : `${hours}:${minutes}`
+                                                item.minutes < 10 ? `${item.hours}:0${item.minutes}` : `${item.hours}:${item.minutes}`
                                             }
                                         </div>
                                         <div className='MessageList__set_message_wrapperTime_img'>

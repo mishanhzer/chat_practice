@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { nanoid } from 'nanoid'
 
 import {useHttp} from '../../hooks/http.hook';
 
 import './SendMessageForm.scss'
 import { addMessage } from '../MessageList/messageListSlice'
+
+const date = new Date()
+const hours = date.getHours()
+const minutes = date.getMinutes()
 
 const SendMessageForm = () => {
     const [text, setText] = useState('')
@@ -19,7 +23,9 @@ const SendMessageForm = () => {
 
         const message = {
             id: nanoid(),
-            message: text
+            message: text,
+            hours,
+            minutes
         }
 
         dispatch(addMessage(message))
