@@ -11,3 +11,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+@font-face {
+    font-family: "SF Medium";
+    font-weight: 500;
+    src:
+      url('./fonts/SFProText-Medium.ttf')
+    }
+
+@font-face {
+    font-family: "SF Regular";
+    font-weight: 400;
+    src:
+     url('./fonts/SFProText-Regular.ttf')
+    }
+
+@font-face {
+    font-family: "SF Bold";
+    font-weight: 700;
+    src:
+        url('./fonts/SFProText-Bold.ttf')
+    }
+
+
+

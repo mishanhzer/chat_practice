@@ -1,9 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 
 import './MessageList.scss'
 
-const MessageList = (props) => {
+const MessageList = () => {
     const messages = useSelector(state => state.message.messages)
     const myRef = useRef()
 
@@ -17,7 +17,7 @@ const MessageList = (props) => {
     }, [messages])
 
     let message = ''
-    
+
     messages.map(item => message = item.message)
 
     return (
